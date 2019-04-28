@@ -1,0 +1,8 @@
+version: 3
+automerge: true
+projects:
+  - name: github
+    dir: github
+    autoplan:
+      enabled: true
+      when_modified: ["*.tf"]
