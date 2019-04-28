@@ -17,6 +17,12 @@ resource "github_repository" "documentation" {
   default_branch = "master"
 }
 
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide awesome userguides"
+  default_branch = "master"
+}
+
 // repo settings
 resource "github_branch_protection" "doc" {
   branch = "master"
