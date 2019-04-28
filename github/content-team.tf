@@ -2,6 +2,7 @@ locals  {
   content_team_members =  ["bob-ewilde", "sally-ewilde"]
 }
 
+// repos
 resource "github_repository" "website" {
   name          = "12factor.io"
   description   = "The 12factor.io public website"
@@ -10,10 +11,15 @@ resource "github_repository" "website" {
   has_wiki      = "true"
 }
 
-// repos
 resource "github_repository" "documentation" {
   name           = "documentation"
   description    = "company wide awesome documentation"
+  default_branch = "master"
+}
+
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide userguides"
   default_branch = "master"
 }
 
