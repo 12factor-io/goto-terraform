@@ -27,7 +27,6 @@ resource "github_branch_protection" "doc" {
 }
 
 // teams
-
 resource "github_team" "content" {
   name        = "Content"
   description = "Members of this team manage content within the organisation i.e. documentation, the website ..."

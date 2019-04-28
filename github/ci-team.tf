@@ -1,5 +1,5 @@
 locals  {
-  ci_team_members =  ["jeeves-ewilde"]
+  ci_team_members =  ["jeeves-form3-oss"]
 }
 
 resource "github_repository" "goto_terraform" {
@@ -23,5 +23,5 @@ resource "github_team_membership" "ci_team_membership" {
 resource "github_team_repository" "team_repo_goto_terraform" {
   team_id    = "${github_team.ci.id}"
   repository = "${github_repository.goto_terraform.name}"
-  permission = "push"
+  permission = "admin"
 }
