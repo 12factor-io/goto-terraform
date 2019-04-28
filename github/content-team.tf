@@ -17,21 +17,6 @@ resource "github_repository" "documentation" {
   default_branch = "master"
 }
 
-resource "github_repository" "userguides" {
-  name           = "userguides"
-  description    = "company wide awesome userguides"
-  default_branch = "master"
-}
-
-// repo settings
-resource "github_branch_protection" "doc" {
-  branch = "master"
-  repository = "${github_repository.documentation.id}"
-  required_pull_request_reviews {
-    require_code_owner_reviews = true
-  }
-}
-
 // teams
 resource "github_team" "content" {
   name        = "Content"
