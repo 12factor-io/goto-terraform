@@ -19,6 +19,12 @@ resource "github_team_membership" "ci_team_membership" {
   count    = "${length(local.ci_team_members)}"
 }
 
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide awesome userguides"
+  default_branch = "master"
+}
+
 // team permissions
 resource "github_team_repository" "team_repo_goto_terraform" {
   team_id    = "${github_team.ci.id}"
