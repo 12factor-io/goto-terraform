@@ -19,13 +19,13 @@ resource "googlecalendar_event" "my_goto_talk" {
 }
 
 
-resource "googlecalendar_event" "give_talk_to_team" {
-  summary     = "${googlecalendar_event.my_goto_talk.summary}"
+resource "googlecalendar_event" "practice_talk_with_team" {
+  summary     = "practice - ${googlecalendar_event.my_goto_talk.summary}"
   description = "${googlecalendar_event.my_goto_talk.description}"
   location    = "Zoom"
   // Start and end times work best if specified as RFC3339.
-  start = "2019-05-05T11:30:00-00:00"
-  end   = "2019-05-05T12:20:00-00:00"
+  start = "2019-04-30T13:30:00-00:00"
+  end   = "2019-04-30T14:20:00-00:00"
 
   // Each attendee is listed separately, and attendees can be marked as
   // optional.
