@@ -18,7 +18,7 @@ destroy:
 	terraform state rm github_repository.ci_goto_terraform;
 	terraform state rm github_repository.engineering_cab_tester;
 	terraform state rm github_repository.engineering_middleman_12factor;
-
+	git branch -D ew/feat/newrepo;
 	terraform destroy
 
 
