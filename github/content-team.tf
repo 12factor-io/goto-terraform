@@ -23,6 +23,19 @@ resource "github_repository" "content_documentation" {
 }
 
 // repo settings
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide awesome userguides"
+}
+
+
+// teams
+resource "github_team" "content" {
+  name        = "Content"
+  description = "Members of this team manage content within the organisation i.e. documentation, the website ..."
+  privacy     = "closed"
+}
+
 resource "github_branch_protection" "content_documentation" {
   branch = "master"
   repository = "${github_repository.content_documentation.id}"
