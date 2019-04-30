@@ -23,7 +23,7 @@ destroy:
 
 
 install:
-	@if [ ! -f ~/.terraform.d/plugins/terraform-provider-codeowners ]; then \
+	@if [ ! -f ~/.terraform.d/plugins/terraform-provider-codeowners_v0.2.7 ]; then \
 		curl -o ~/.terraform.d/plugins/codeowners.zip -L https://github.com/form3tech-oss/terraform-provider-codeowners/releases/download/v0.2.7/terraform-provider-codeowners_0.2.7_${platform}_amd64.zip; \
 		unzip ~/.terraform.d/plugins/codeowners.zip -d  ~/.terraform.d/plugins/; \
 		rm ~/.terraform.d/plugins/codeowners.zip; \
