@@ -17,6 +17,12 @@ resource "github_repository" "content_documentation" {
   auto_init      = true
 }
 
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide awesome userguides"
+}
+
+
 // teams
 resource "github_team" "content" {
   name        = "Content"
@@ -31,13 +37,6 @@ resource "github_branch_protection" "content_documentation" {
     require_code_owner_reviews = true
   }
 }
-
-resource "github_repository" "userguides" {
-  name           = "userguides"
-  description    = "company wide awesome userguides"
-  default_branch = "master"
-}
-
 resource "codeowners_file" "main" {
   repository_owner = "${var.organisation}"
   repository_name  = "${github_repository.content_documentation.name}"
