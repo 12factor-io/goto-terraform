@@ -2,7 +2,7 @@ locals  {
   content_team_members =  ["bob-ewilde", "sally-ewilde"]
 }
 
-resource "github_repository" "website" {
+resource "github_repository" "content_website" {
   name          = "12factor.io"
   description   = "The 12factor.io public website"
   has_issues    = "true"
@@ -11,16 +11,17 @@ resource "github_repository" "website" {
 }
 
 // repos
-resource "github_repository" "documentation" {
+resource "github_repository" "content_documentation" {
   name           = "documentation"
   description    = "company wide awesome documentation"
-  default_branch = "master"
+  auto_init      = true
 }
 
 // teams
 resource "github_team" "content" {
   name        = "Content"
   description = "Members of this team manage content within the organisation i.e. documentation, the website ..."
+  privacy     = "closed"
 }
 
 // team membership
@@ -34,12 +35,17 @@ resource "github_team_membership" "content_team_membership" {
 // team permissions
 resource "github_team_repository" "team_repo_documentation" {
   team_id    = "${github_team.content.id}"
-  repository = "${github_repository.documentation.name}"
+  repository = "${github_repository.content_documentation.name}"
   permission = "push"
 }
 
 resource "github_team_repository" "team_repo_webiste" {
   team_id    = "${github_team.content.id}"
-  repository = "${github_repository.website.name}"
+  repository = "${github_repository.content_website.name}"
   permission = "push"
 }
+
+
+
+
+
