@@ -24,6 +24,32 @@ resource "github_team" "content" {
   privacy     = "closed"
 }
 
+resource "github_branch_protection" "content_documentation" {
+  branch = "master"
+  repository = "${github_repository.content_documentation.id}"
+  required_pull_request_reviews {
+    require_code_owner_reviews = true
+  }
+}
+
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide awesome userguides"
+  default_branch = "master"
+}
+
+resource "codeowners_file" "main" {
+  repository_owner = "${var.organisation}"
+  repository_name  = "${github_repository.content_documentation.name}"
+  branch           = "master"
+  rules = [
+    {
+      pattern   = "*"
+      usernames = ["${var.organisation}/${github_team.content_approvers.name}"]
+    }
+  ]
+}
+
 // team membership
 resource "github_team_membership" "content_team_membership" {
   team_id  = "${github_team.content.id}"
