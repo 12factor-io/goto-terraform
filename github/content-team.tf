@@ -10,11 +10,44 @@ resource "github_repository" "content_website" {
   has_wiki      = "true"
 }
 
+resource "github_repository" "userguides" {
+  name           = "userguides"
+  description    = "company wide awesome userguides"
+}
+
 // repos
 resource "github_repository" "content_documentation" {
   name           = "documentation"
   description    = "company wide awesome documentation"
   auto_init      = true
+}
+
+// repo settings
+resource "github_branch_protection" "content_documentation" {
+  branch = "master"
+  repository = "${github_repository.content_documentation.id}"
+  required_pull_request_reviews {
+    require_code_owner_reviews = true
+  }
+}
+
+resource "codeowners_file" "main" {
+  repository_owner = "${var.organisation}"
+  repository_name  = "${github_repository.content_documentation.name}"
+  branch           = "master"
+  rules = [
+    {
+      pattern   = "*"
+      usernames = ["${var.organisation}/${github_team.content_approvers.name}"]
+    }
+  ]
+}
+
+// team membership
+resource "github_team_membership" "content_approvers_team_membership" {
+  team_id  = "${github_team.content_approvers.id}"
+  username = "${element(local.content_team_members, 1)}" // sally-ewilde
+  role     = "member"
 }
 
 // teams
