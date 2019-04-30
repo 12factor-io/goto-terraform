@@ -1,0 +1,452 @@
+{
+    "version": 3,
+    "terraform_version": "0.11.13",
+    "serial": 103,
+    "lineage": "42234df6-bc7c-9418-799a-c224e51e6394",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {},
+            "resources": {
+                "codeowners_file.main": {
+                    "type": "codeowners_file",
+                    "depends_on": [
+                        "github_repository.content_documentation",
+                        "github_team.content_approvers"
+                    ],
+                    "primary": {
+                        "id": "12factor-io/documentation:master",
+                        "attributes": {
+                            "branch": "master",
+                            "id": "12factor-io/documentation:master",
+                            "repository_name": "documentation",
+                            "repository_owner": "12factor-io",
+                            "rules.#": "1",
+                            "rules.3698248759.pattern": "*",
+                            "rules.3698248759.usernames.#": "1",
+                            "rules.3698248759.usernames.1985058737": "12factor-io/Content-approvers"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.codeowners"
+                },
+                "github_branch_protection.content_documentation": {
+                    "type": "github_branch_protection",
+                    "depends_on": [
+                        "github_repository.content_documentation"
+                    ],
+                    "primary": {
+                        "id": "documentation:master",
+                        "attributes": {
+                            "branch": "master",
+                            "enforce_admins": "false",
+                            "etag": "W/\"79c363ea4f54e057a27105839ce10600\"",
+                            "id": "documentation:master",
+                            "repository": "documentation",
+                            "required_pull_request_reviews.#": "1",
+                            "required_pull_request_reviews.0.dismiss_stale_reviews": "false",
+                            "required_pull_request_reviews.0.dismissal_teams.#": "0",
+                            "required_pull_request_reviews.0.dismissal_users.#": "0",
+                            "required_pull_request_reviews.0.include_admins": "false",
+                            "required_pull_request_reviews.0.require_code_owner_reviews": "true",
+                            "required_status_checks.#": "0",
+                            "restrictions.#": "0"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_repository.content_documentation": {
+                    "type": "github_repository",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "documentation",
+                        "attributes": {
+                            "allow_merge_commit": "true",
+                            "allow_rebase_merge": "true",
+                            "allow_squash_merge": "true",
+                            "archived": "false",
+                            "auto_init": "true",
+                            "default_branch": "master",
+                            "description": "company wide awesome documentation",
+                            "etag": "W/\"0f434d2de41378aab98c78d249497d36\"",
+                            "full_name": "12factor-io/documentation",
+                            "git_clone_url": "git://github.com/12factor-io/documentation.git",
+                            "has_downloads": "false",
+                            "has_issues": "false",
+                            "has_wiki": "false",
+                            "homepage_url": "",
+                            "html_url": "https://github.com/12factor-io/documentation",
+                            "http_clone_url": "https://github.com/12factor-io/documentation.git",
+                            "id": "documentation",
+                            "name": "documentation",
+                            "private": "false",
+                            "ssh_clone_url": "git@github.com:12factor-io/documentation.git",
+                            "svn_url": "https://github.com/12factor-io/documentation",
+                            "topics.#": "0"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_repository.userguides": {
+                    "type": "github_repository",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "userguides",
+                        "attributes": {
+                            "allow_merge_commit": "true",
+                            "allow_rebase_merge": "true",
+                            "allow_squash_merge": "true",
+                            "archived": "false",
+                            "default_branch": "master",
+                            "description": "company wide awesome userguides",
+                            "etag": "W/\"f0891a39ecbd6ca965285cdd86f41e32\"",
+                            "full_name": "12factor-io/userguides",
+                            "git_clone_url": "git://github.com/12factor-io/userguides.git",
+                            "has_downloads": "false",
+                            "has_issues": "false",
+                            "has_wiki": "false",
+                            "homepage_url": "",
+                            "html_url": "https://github.com/12factor-io/userguides",
+                            "http_clone_url": "https://github.com/12factor-io/userguides.git",
+                            "id": "userguides",
+                            "name": "userguides",
+                            "private": "false",
+                            "ssh_clone_url": "git@github.com:12factor-io/userguides.git",
+                            "svn_url": "https://github.com/12factor-io/userguides",
+                            "topics.#": "0"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team.ci": {
+                    "type": "github_team",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "3234485",
+                        "attributes": {
+                            "description": "Members of this team manage content within the organisation i.e. documentation, the website ...",
+                            "etag": "W/\"fb0638eba66b8cd014cd8c55329d2234\"",
+                            "id": "3234485",
+                            "ldap_dn": "",
+                            "name": "CI",
+                            "privacy": "closed",
+                            "slug": "ci"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team.content": {
+                    "type": "github_team",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "3234486",
+                        "attributes": {
+                            "description": "Members of this team manage content within the organisation i.e. documentation, the website ...",
+                            "etag": "W/\"6743cc4eec13baefd11617ce1f103281\"",
+                            "id": "3234486",
+                            "ldap_dn": "",
+                            "name": "Content",
+                            "privacy": "closed",
+                            "slug": "content"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team.content_approvers": {
+                    "type": "github_team",
+                    "depends_on": [
+                        "github_team.content"
+                    ],
+                    "primary": {
+                        "id": "3234488",
+                        "attributes": {
+                            "description": "Members of this team have permissions to approve pull requests for the content team",
+                            "etag": "W/\"d990c1ea89fa3874908f796255db8416\"",
+                            "id": "3234488",
+                            "ldap_dn": "",
+                            "name": "Content-approvers",
+                            "parent_team_id": "3234486",
+                            "privacy": "closed",
+                            "slug": "content-approvers"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team.engineering": {
+                    "type": "github_team",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "3234487",
+                        "attributes": {
+                            "description": "Members of this team write software",
+                            "etag": "W/\"dcde6f12661553114f9e51efc8a06cfc\"",
+                            "id": "3234487",
+                            "ldap_dn": "",
+                            "name": "Engineering",
+                            "privacy": "closed",
+                            "slug": "engineering"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_membership.ci_team_membership": {
+                    "type": "github_team_membership",
+                    "depends_on": [
+                        "github_team.ci",
+                        "local.ci_team_members"
+                    ],
+                    "primary": {
+                        "id": "3234485:jeeves-form3-oss",
+                        "attributes": {
+                            "etag": "W/\"585c6160e0933c75a0acee11ef87c879\"",
+                            "id": "3234485:jeeves-form3-oss",
+                            "role": "member",
+                            "team_id": "3234485",
+                            "username": "jeeves-form3-oss"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_membership.content_approvers_team_membership": {
+                    "type": "github_team_membership",
+                    "depends_on": [
+                        "github_team.content_approvers",
+                        "local.content_team_members"
+                    ],
+                    "primary": {
+                        "id": "3234488:sally-ewilde",
+                        "attributes": {
+                            "etag": "W/\"7aa3ff603c3eff942210e152b73e3d20\"",
+                            "id": "3234488:sally-ewilde",
+                            "role": "member",
+                            "team_id": "3234488",
+                            "username": "sally-ewilde"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_membership.content_team_membership.0": {
+                    "type": "github_team_membership",
+                    "depends_on": [
+                        "github_team.content",
+                        "local.content_team_members"
+                    ],
+                    "primary": {
+                        "id": "3234486:bob-ewilde",
+                        "attributes": {
+                            "etag": "W/\"58816b1185d7322ad4685190700d7227\"",
+                            "id": "3234486:bob-ewilde",
+                            "role": "member",
+                            "team_id": "3234486",
+                            "username": "bob-ewilde"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_membership.content_team_membership.1": {
+                    "type": "github_team_membership",
+                    "depends_on": [
+                        "github_team.content",
+                        "local.content_team_members"
+                    ],
+                    "primary": {
+                        "id": "3234486:sally-ewilde",
+                        "attributes": {
+                            "etag": "W/\"20f0f2a115bb3546c334fc6e9c84610a\"",
+                            "id": "3234486:sally-ewilde",
+                            "role": "member",
+                            "team_id": "3234486",
+                            "username": "sally-ewilde"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_membership.engineering_team_membership": {
+                    "type": "github_team_membership",
+                    "depends_on": [
+                        "github_team.engineering",
+                        "local.engineering_team_members"
+                    ],
+                    "primary": {
+                        "id": "3234487:ewilde",
+                        "attributes": {
+                            "etag": "W/\"24eadf15639cc0822286f72167572499\"",
+                            "id": "3234487:ewilde",
+                            "role": "maintainer",
+                            "team_id": "3234487",
+                            "username": "ewilde"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_repository.team_repo_documentation": {
+                    "type": "github_team_repository",
+                    "depends_on": [
+                        "github_repository.content_documentation",
+                        "github_team.content"
+                    ],
+                    "primary": {
+                        "id": "3234486:documentation",
+                        "attributes": {
+                            "etag": "W/\"da284f9f717e649f00e3a76059805912\"",
+                            "id": "3234486:documentation",
+                            "permission": "push",
+                            "repository": "documentation",
+                            "team_id": "3234486"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_repository.team_repo_engineering_cab_tester": {
+                    "type": "github_team_repository",
+                    "depends_on": [
+                        "github_repository.engineering_cab_tester",
+                        "github_team.engineering"
+                    ],
+                    "primary": {
+                        "id": "3234487:cab-tester",
+                        "attributes": {
+                            "etag": "W/\"54eba25dba80af990a3f761097b1cc15\"",
+                            "id": "3234487:cab-tester",
+                            "permission": "push",
+                            "repository": "cab-tester",
+                            "team_id": "3234487"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_repository.team_repo_engineering_documentation": {
+                    "type": "github_team_repository",
+                    "depends_on": [
+                        "github_repository.content_documentation",
+                        "github_team.engineering"
+                    ],
+                    "primary": {
+                        "id": "3234487:documentation",
+                        "attributes": {
+                            "etag": "W/\"da284f9f717e649f00e3a76059805912\"",
+                            "id": "3234487:documentation",
+                            "permission": "push",
+                            "repository": "documentation",
+                            "team_id": "3234487"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_repository.team_repo_goto_terraform": {
+                    "type": "github_team_repository",
+                    "depends_on": [
+                        "github_repository.ci_goto_terraform",
+                        "github_team.ci"
+                    ],
+                    "primary": {
+                        "id": "3234485:goto-terraform",
+                        "attributes": {
+                            "etag": "W/\"f30445dab789a3cc27e5df4d03d40256\"",
+                            "id": "3234485:goto-terraform",
+                            "permission": "admin",
+                            "repository": "goto-terraform",
+                            "team_id": "3234485"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_repository.team_repo_middleman_12factor": {
+                    "type": "github_team_repository",
+                    "depends_on": [
+                        "github_repository.engineering_middleman_12factor",
+                        "github_team.engineering"
+                    ],
+                    "primary": {
+                        "id": "3234487:middleman-12factor",
+                        "attributes": {
+                            "etag": "W/\"b2884b6be6e3f6043d5355a0e9e8fc86\"",
+                            "id": "3234487:middleman-12factor",
+                            "permission": "push",
+                            "repository": "middleman-12factor",
+                            "team_id": "3234487"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                },
+                "github_team_repository.team_repo_webiste": {
+                    "type": "github_team_repository",
+                    "depends_on": [
+                        "github_repository.content_website",
+                        "github_team.content"
+                    ],
+                    "primary": {
+                        "id": "3234486:12factor.io",
+                        "attributes": {
+                            "etag": "W/\"d31b247dc907a40d03107f5589f9a86a\"",
+                            "id": "3234486:12factor.io",
+                            "permission": "push",
+                            "repository": "12factor.io",
+                            "team_id": "3234486"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.github"
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
